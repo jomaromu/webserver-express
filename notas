@@ -1,0 +1,31 @@
+//npm install express               -> Instalar express para usarlo como servidor web
+
+//crear carpetas publicas
+app.use(express.static(__dirname + '/public'))
+
+
+//usar express-handlebars
+const exphbs  = require('express-handlebars');
+
+//uso de variables en los documentos
+<h1 class="display-4">Hola, {{ nombre }}!</h1>
+<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+
+//path del home
+
+
+//bloque de codigo o partials
+{{> navbar }}
+
+//trbajar con hadlebars para renderizar paginas html
+//recordar que se trabaja con express
+app.set('view engine', 'hbs');
+
+ //renderizo la pagina hbs y la envio
+    res.render('home', {
+        layout:false,
+        nombre:'Mauricio'
+    });
+
+//guarda los pedazos de codigo que reusaré en donde lo requiera
+hbs.registerPartials(__dirname + '/views/partials');
